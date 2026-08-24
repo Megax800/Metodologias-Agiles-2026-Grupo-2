@@ -1,17 +1,20 @@
-orientacion = 'N'
+p_cardinales = ['N','E','S','O']
+orientacion = 0
 posicion = (0,0)
 
 def get_posicion():
     return posicion
 
 def get_orientacion():
-    return orientacion
+    return p_cardinales[orientacion % 4]
 
 def girarDerecha():
-    return "E"
+    global orientacion
+    orientacion += 1
 
 def girarIzquierda():
-    return "O"
+    global orientacion
+    orientacion -= 1
 
 def test_posicion():
     assert (0,0) == get_posicion()
@@ -20,7 +23,13 @@ def test_orientacion():
     assert 'N' == get_orientacion()
 
 def test_girarDerecha():
-    assert 'E' == girarDerecha()
+    global orientacion
+    orientacion = 0
+    girarDerecha()
+    assert 'E' == get_orientacion()
 
 def test_girarIzquierda():
-    assert 'O' == girarIzquierda()
+    global orientacion
+    orientacion = 0
+    girarIzquierda()
+    assert 'O' == get_orientacion()
