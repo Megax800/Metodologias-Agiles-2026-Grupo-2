@@ -1,4 +1,5 @@
 p_cardinales = ['N','E','S','O']
+cardinales_valores = [(0,1), (1,0), (0,-1), (-1,0)]
 orientacion = 0
 posicion = (0,0)
 
@@ -18,7 +19,7 @@ def girarIzquierda():
 
 def avanzar():
     global posicion
-    posicion = (1,0)
+    posicion = tuple(sum(x) for x in zip(posicion, cardinales_valores[orientacion % 4]))
 
 def test_posicion():
     assert (0,0) == get_posicion()
@@ -39,5 +40,7 @@ def test_girarIzquierda():
     assert 'O' == get_orientacion()
 
 def test_avanzar():
+    global orientacion
+    orientacion = 0
     avanzar()
-    assert (1,0) == get_posicion()
+    assert (0,1) == get_posicion()
