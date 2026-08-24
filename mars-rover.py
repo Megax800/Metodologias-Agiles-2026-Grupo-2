@@ -7,6 +7,12 @@ def get_posicion():
 def get_orientacion():
     return orientacion
 
+def girarDerecha():
+    return "E"
+
+def girarIzquierda():
+    return "O"
+
 def test_posicion():
     assert (0,0) == get_posicion()
 
