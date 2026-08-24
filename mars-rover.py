@@ -44,3 +44,9 @@ def test_avanzar():
     orientacion = 0
     avanzar()
     assert (0,1) == get_posicion()
+
+def test_retroceder():
+    global orientacion
+    orientacion = 0
+    retroceder()
+    assert (0,-1) == get_posicion()
