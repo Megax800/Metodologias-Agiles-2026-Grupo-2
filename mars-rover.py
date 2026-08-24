@@ -16,6 +16,10 @@ def girarIzquierda():
     global orientacion
     orientacion -= 1
 
+def avanzar():
+    global posicion
+    posicion = (1,0)
+
 def test_posicion():
     assert (0,0) == get_posicion()
 
