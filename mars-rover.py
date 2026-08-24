@@ -58,3 +58,11 @@ def test_retroceder():
     posicion = (0,0)
     retroceder()
     assert (0,-1) == get_posicion()
+
+def test_comandos():
+    global orientacion
+    global posicion
+    orientacion = 0
+    posicion = (0,0)
+    comando("FFRFF")
+    assert(2,2) == get_posicion()
