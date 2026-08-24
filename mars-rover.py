@@ -23,7 +23,7 @@ def avanzar():
 
 def retroceder():
     global posicion
-    posicion = (0,-1)
+    posicion = tuple(a - b for a, b in zip(posicion, cardinales_valores[orientacion % 4]))
 
 def test_posicion():
     assert (0,0) == get_posicion()
@@ -45,12 +45,16 @@ def test_girarIzquierda():
 
 def test_avanzar():
     global orientacion
+    global posicion
     orientacion = 0
+    posicion = (0,0)
     avanzar()
     assert (0,1) == get_posicion()
 
 def test_retroceder():
     global orientacion
+    global posicion
     orientacion = 0
+    posicion = (0,0)
     retroceder()
     assert (0,-1) == get_posicion()
