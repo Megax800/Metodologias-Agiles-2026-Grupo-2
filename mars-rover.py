@@ -21,6 +21,10 @@ def avanzar():
     global posicion
     posicion = tuple(sum(x) for x in zip(posicion, cardinales_valores[orientacion % 4]))
 
+def retroceder():
+    global posicion
+    posicion = (0,-1)
+
 def test_posicion():
     assert (0,0) == get_posicion()
 
