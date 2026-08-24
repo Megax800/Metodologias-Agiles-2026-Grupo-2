@@ -12,3 +12,9 @@ def test_posicion():
 
 def test_orientacion():
     assert 'N' == get_orientacion()
+
+def test_girarDerecha():
+    assert 'E' == girarDerecha()
+
+def test_girarIzquierda():
+    assert 'O' == girarIzquierda()
