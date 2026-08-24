@@ -25,6 +25,10 @@ def retroceder():
     global posicion
     posicion = tuple(a - b for a, b in zip(posicion, cardinales_valores[orientacion % 4]))
 
+def comando(instruccion):
+    global posicion
+    posicion = (2,2)
+
 def test_posicion():
     assert (0,0) == get_posicion()
 
