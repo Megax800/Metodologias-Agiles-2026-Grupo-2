@@ -1,72 +1,71 @@
 p_cardinales = ['N','E','S','O']
 cardinales_valores = [(0,1), (1,0), (0,-1), (-1,0)]
-orientacion = 0
-posicion = (0,0)
 
-def get_posicion():
-    return posicion
 
-def get_orientacion():
-    return p_cardinales[orientacion % 4]
+class rover:
+    def __init__(self, orientacion, posicion):
+        self.orientacion = orientacion
+        self.posicion = posicion
 
-def girarDerecha():
-    global orientacion
-    orientacion += 1
+    def get_posicion(self):
+        return self.posicion
 
-def girarIzquierda():
-    global orientacion
-    orientacion -= 1
+    def get_orientacion(self):
+        return p_cardinales[self.orientacion % 4]
 
-def avanzar():
-    global posicion
-    posicion = tuple(sum(x) for x in zip(posicion, cardinales_valores[orientacion % 4]))
+    def girarDerecha(self):
+        self.orientacion += 1
 
-def retroceder():
-    global posicion
-    posicion = tuple(a - b for a, b in zip(posicion, cardinales_valores[orientacion % 4]))
+    def girarIzquierda(self):
+        self.orientacion -= 1
 
-def comando(instruccion):
-    global posicion
-    posicion = (2,2)
+    def avanzar(self):
+        self.posicion = tuple(sum(x) for x in zip(self.posicion, cardinales_valores[self.orientacion % 4]))
+
+    def retroceder(self):
+        self.posicion = tuple(a - b for a, b in zip(self.posicion, cardinales_valores[self.orientacion % 4]))
+
+    def comando(self , instruccion):
+        for x in instruccion:
+            match x:
+                case 'F':
+                    self.avanzar()
+                case 'B':
+                    self.retroceder()
+                case 'L':
+                    self.girarIzquierda()
+                case 'R':
+                    self.girarDerecha()
 
 def test_posicion():
-    assert (0,0) == get_posicion()
+    miRover = rover(0, (0,0))
+    assert (0,0) == miRover.get_posicion()
 
 def test_orientacion():
-    assert 'N' == get_orientacion()
+    miRover = rover(0, (0,0))
+    assert 'N' == miRover.get_orientacion()
 
 def test_girarDerecha():
-    global orientacion
-    orientacion = 0
-    girarDerecha()
-    assert 'E' == get_orientacion()
+    miRover = rover(0, (0,0))
+    miRover.girarDerecha()
+    assert 'E' == miRover.get_orientacion()
 
 def test_girarIzquierda():
-    global orientacion
-    orientacion = 0
-    girarIzquierda()
-    assert 'O' == get_orientacion()
+    miRover = rover(0, (0,0))
+    miRover.girarIzquierda()
+    assert 'O' == miRover.get_orientacion()
 
 def test_avanzar():
-    global orientacion
-    global posicion
-    orientacion = 0
-    posicion = (0,0)
-    avanzar()
-    assert (0,1) == get_posicion()
+    miRover = rover(0, (0,0))
+    miRover.avanzar()
+    assert (0,1) == miRover.get_posicion()
 
 def test_retroceder():
-    global orientacion
-    global posicion
-    orientacion = 0
-    posicion = (0,0)
-    retroceder()
-    assert (0,-1) == get_posicion()
+    miRover = rover(0, (0,0))
+    miRover.retroceder()
+    assert (0,-1) == miRover.get_posicion()
 
 def test_comandos():
-    global orientacion
-    global posicion
-    orientacion = 0
-    posicion = (0,0)
-    comando("FFRFF")
-    assert(2,2) == get_posicion()
+    miRover = rover(0, (0,0))
+    miRover.comando("FFRFF")
+    assert(2,2) == miRover.get_posicion()
