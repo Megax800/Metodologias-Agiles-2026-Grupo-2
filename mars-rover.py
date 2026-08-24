@@ -33,3 +33,7 @@ def test_girarIzquierda():
     orientacion = 0
     girarIzquierda()
     assert 'O' == get_orientacion()
+
+def test_avanzar():
+    avanzar()
+    assert (1,0) == get_posicion()
