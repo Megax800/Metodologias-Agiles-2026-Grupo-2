@@ -12,30 +12,61 @@
       <button id="jugar" type="button">Jugar</button>
 
       <section id="partida" aria-label="Partida" hidden>
-        <div id="casilleros" aria-label="Letras de la palabra"></div>
+        <div id="palabra" data-testid="word" aria-label="Palabra oculta"></div>
+
+        <label for="letra">Ingresá una letra:</label>
+        <input id="letra" type="text" maxlength="1" />
       </section>
     </main>
 
-    <script>
+    <script type="module">
+      import { Ahorcado } from "/src/domain/ahorcado.ts";
+
       const botonJugar = document.getElementById("jugar");
       const partida = document.getElementById("partida");
-      const casilleros = document.getElementById("casilleros");
+      const palabraElemento = document.getElementById("palabra");
+      const entradaLetra = document.getElementById("letra");
+
+      let juego;
+
+      function mostrarPalabra() {
+        palabraElemento.replaceChildren();
+
+        const letras = juego.obtenerPalabraOculta();
+
+        letras.forEach((letra, indice) => {
+          if (indice > 0) {
+            palabraElemento.appendChild(document.createTextNode(" "));
+          }
+
+          const casillero = document.createElement("span");
+          casillero.className = "casillero";
+          casillero.textContent = letra;
+          palabraElemento.appendChild(casillero);
+        });
+      }
 
       botonJugar.addEventListener("click", () => {
         const parametros = new URLSearchParams(window.location.search);
         const palabra = (parametros.get("word") || "ESPEJO").toUpperCase();
 
-        casilleros.replaceChildren();
-
-        for (const letra of palabra) {
-          const casillero = document.createElement("span");
-          casillero.className = "casillero";
-          casillero.textContent = "_";
-          casillero.setAttribute("aria-label", "Letra oculta");
-          casilleros.appendChild(casillero);
-        }
-
+        juego = new Ahorcado(palabra);
+        mostrarPalabra();
         partida.hidden = false;
+        entradaLetra.value = "";
+        entradaLetra.focus();
+      });
+
+      entradaLetra.addEventListener("keydown", (evento) => {
+        if (evento.key !== "Enter" || !juego) return;
+
+        const letra = entradaLetra.value.trim();
+
+        if (letra.length !== 1) return;
+
+        juego.adivinarLetra(letra);
+        mostrarPalabra();
+        entradaLetra.value = "";
       });
     </script>
   </body>
