@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahorcado</title>
+  </head>
+  <body>
+    <main>
+      <h1>Juego del Ahorcado</h1>
+
+      <button id="jugar" type="button">Jugar</button>
+
+      <section id="partida" aria-label="Partida" hidden>
+        <div id="casilleros" aria-label="Letras de la palabra"></div>
+      </section>
+    </main>
+
+    <script>
+      const botonJugar = document.getElementById("jugar");
+      const partida = document.getElementById("partida");
+      const casilleros = document.getElementById("casilleros");
+
+      botonJugar.addEventListener("click", () => {
+        const parametros = new URLSearchParams(window.location.search);
+        const palabra = (parametros.get("word") || "ESPEJO").toUpperCase();
+
+        casilleros.replaceChildren();
+
+        for (const letra of palabra) {
+          const casillero = document.createElement("span");
+          casillero.className = "casillero";
+          casillero.textContent = "_";
+          casillero.setAttribute("aria-label", "Letra oculta");
+          casilleros.appendChild(casillero);
+        }
+
+        partida.hidden = false;
+      });
+    </script>
+  </body>
+</html>
