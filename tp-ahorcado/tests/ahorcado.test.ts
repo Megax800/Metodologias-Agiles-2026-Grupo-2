@@ -14,4 +14,18 @@ describe("Ahorcado", () => {
       "_",
     ]);
   });
+  it("debe revelar todas las apariciones de una letra acertada", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.adivinarLetra("E");
+
+    expect(juego.obtenerPalabraOculta()).toEqual([
+      "E",
+      "_",
+      "_",
+      "E",
+      "_",
+      "_",
+    ]);
+  });
 });
