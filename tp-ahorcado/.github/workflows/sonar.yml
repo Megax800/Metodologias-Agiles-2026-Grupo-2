@@ -1,0 +1,39 @@
+name: Analisis estatico
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  analisis:
+    name: Analisis estatico y quality gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Compilar aplicacion
+        run: npm run build
+
+      - name: Analizar codigo
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
+
+      - name: Verificar quality gate
+        uses: SonarSource/sonarqube-quality-gate-action@v1
+        timeout-minutes: 10
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
