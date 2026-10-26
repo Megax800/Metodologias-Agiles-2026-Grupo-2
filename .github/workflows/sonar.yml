@@ -36,34 +36,8 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         with:
           projectBaseDir: tp-ahorcado
-          args: >
-            -Dsonar.verbose=true
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
-
-      - name: Buscar archivos de Sonar
-        if: always()
-        working-directory: .
-        run: |
-          echo "Workspace:"
-          pwd
-          echo "Archivos de metadatos:"
-          find . -name "report-task.txt" -o -name "report-task.properties"
-          echo "Directorios scanner:"
-          find . -type d -name ".scannerwork"
-
-      #- name: Analizar codigo
-      #  uses: SonarSource/sonarqube-scan-action@v6
-      #  with:
-      #    projectBaseDir: tp-ahorcado
-      #  env:
-      #    SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
-
-      - name: Verificar archivo de metadatos
-        if: always()
-        run: |
-          ls -la .scannerwork/
-          test -f .scannerwork/report-task.txt
 
       - name: Verificar quality gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
