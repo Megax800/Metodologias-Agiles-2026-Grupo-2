@@ -34,7 +34,7 @@ jobs:
 
       - name: Analizar codigo
         uses: SonarSource/sonarqube-scan-action@v6
-        with: 
+        with:
           projectBaseDir: tp-ahorcado
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_KEY }}
