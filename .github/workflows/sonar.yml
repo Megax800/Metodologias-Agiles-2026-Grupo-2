@@ -62,13 +62,13 @@ jobs:
       - name: Verificar archivo de metadatos
         if: always()
         run: |
-          ls -la tp-ahorcado/.scannerwork/
-          test -f tp-ahorcado/.scannerwork/report-task.txt
+          ls -la .scannerwork/
+          test -f .scannerwork/report-task.txt
 
       - name: Verificar quality gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
         with:
-          scanMetadataReportFile: tp-ahorcado/.scannerwork/report-task.txt
+          scanMetadataReportFile: .scannerwork/report-task.txt
           pollingTimeoutSec: 300
         timeout-minutes: 5
         env:
