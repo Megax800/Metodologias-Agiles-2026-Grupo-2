@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "CoolAir",
+    "projectKey": "PROJECT_KEY"
+  }
+}
