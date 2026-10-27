@@ -35,4 +35,15 @@ describe("Ahorcado", () => {
 
     expect(juego.obtenerVidas()).toBe(4);
   });
+  it("devuelve true cuando se descubren todas las letras", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.adivinarLetra("E");
+    juego.adivinarLetra("S");
+    juego.adivinarLetra("P");
+    juego.adivinarLetra("J");
+    juego.adivinarLetra("O");
+
+    expect(juego.haGanado()).toBe(true);
+  });
 });
