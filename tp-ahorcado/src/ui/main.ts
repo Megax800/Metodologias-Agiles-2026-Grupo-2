@@ -57,5 +57,11 @@ entradaLetra.addEventListener("keydown", (evento) => {
   juego.adivinarLetra(letra);
   vidasElemento.textContent = String(juego.obtenerVidas());
   mostrarPalabra();
+  if (juego.haGanado()) {
+    const mensaje = document.createElement("p");
+    mensaje.id = "mensaje-resultado";
+    mensaje.textContent = "¡Ganaste!";
+    partida.appendChild(mensaje);
+  }
   entradaLetra.value = "";
 });
