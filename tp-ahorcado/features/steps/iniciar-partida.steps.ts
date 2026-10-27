@@ -7,6 +7,7 @@ Given(
   "que el jugador inicia una partida con la palabra {string}",
   async ({ page }, palabra) => {
     await page.goto(`/?word=${palabra}`);
+    await page.getByRole("button", { name: "Jugar" }).click();
   },
 );
 

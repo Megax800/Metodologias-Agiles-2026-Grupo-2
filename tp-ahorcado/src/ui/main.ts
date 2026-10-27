@@ -4,8 +4,15 @@ const botonJugar = document.getElementById("jugar");
 const partida = document.getElementById("partida");
 const palabraElemento = document.getElementById("palabra");
 const entradaLetra = <HTMLInputElement>document.getElementById("letra");
+const vidasElemento = document.getElementById("vidas");
 
-if (!botonJugar || !partida || !palabraElemento || !entradaLetra) {
+if (
+  !botonJugar ||
+  !partida ||
+  !palabraElemento ||
+  !entradaLetra ||
+  !vidasElemento
+) {
   throw new Error("Faltan elementos necesarios para inicializar el juego");
 }
 
@@ -48,6 +55,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
   if (letra.length !== 1) return;
 
   juego.adivinarLetra(letra);
+  vidasElemento.textContent = String(5);
   mostrarPalabra();
   entradaLetra.value = "";
 });
