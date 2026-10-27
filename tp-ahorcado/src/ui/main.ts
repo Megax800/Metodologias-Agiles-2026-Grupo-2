@@ -55,7 +55,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
   if (letra.length !== 1) return;
 
   juego.adivinarLetra(letra);
-  vidasElemento.textContent = String(5);
+  vidasElemento.textContent = String(juego.obtenerVidas());
   mostrarPalabra();
   entradaLetra.value = "";
 });
