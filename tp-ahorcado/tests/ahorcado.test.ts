@@ -28,4 +28,11 @@ describe("Ahorcado", () => {
       "_",
     ]);
   });
+  it("debe descontar una vida al ingresar una letra incorrecta", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.adivinarLetra("A");
+
+    expect(juego.obtenerVidas()).toBe(4);
+  });
 });
