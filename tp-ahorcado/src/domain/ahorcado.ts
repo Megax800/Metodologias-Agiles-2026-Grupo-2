@@ -32,4 +32,8 @@ export class Ahorcado {
       this.vidas--;
     }
   }
+
+  haGanado(): boolean {
+    return this.palabraOculta.every((letra) => letra !== "_");
+  }
 }
