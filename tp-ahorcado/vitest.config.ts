@@ -2,11 +2,11 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    environment: "node",
+    environment: "jsdom",
     include: ["tests/**/*.test.ts"],
     coverage: {
       provider: "v8",
-      include: ["src/domain/**/*.ts"],
+      include: ["src/**/*.ts"],
       reporter: ["text", "lcov", "html"],
       thresholds: {
         statements: 90,
