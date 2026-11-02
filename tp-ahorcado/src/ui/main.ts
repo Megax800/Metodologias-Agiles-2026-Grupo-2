@@ -17,6 +17,7 @@ if (
 }
 
 let juego: Ahorcado | null = null;
+let palabraSecreta = "";
 
 function mostrarPalabra() {
   palabraElemento?.replaceChildren();
@@ -41,6 +42,7 @@ botonJugar.addEventListener("click", () => {
   const palabra = (parametros.get("word") || "ESPEJO").toUpperCase();
 
   juego = new Ahorcado(palabra);
+  palabraSecreta = palabra;
   mostrarPalabra();
   partida.hidden = false;
   entradaLetra.value = "";
@@ -57,6 +59,20 @@ entradaLetra.addEventListener("keydown", (evento) => {
   juego.adivinarLetra(letra);
   vidasElemento.textContent = String(juego.obtenerVidas());
   mostrarPalabra();
+  if (juego.haPerdido()) {
+    const mensaje = document.createElement("p");
+    mensaje.id = "mensaje-resultado";
+    mensaje.textContent = "¡Perdiste!";
+    partida.appendChild(mensaje);
+
+    const palabraRevelada = document.createElement("p");
+    palabraRevelada.id = "palabra-secreta";
+    palabraRevelada.textContent = palabraSecreta;
+    partida.appendChild(palabraRevelada);
+
+    entradaLetra.disabled = true;
+    return;
+  }
   if (juego.haGanado()) {
     const mensaje = document.createElement("p");
     mensaje.id = "mensaje-resultado";

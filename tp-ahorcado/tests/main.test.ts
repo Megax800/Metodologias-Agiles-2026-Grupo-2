@@ -118,4 +118,27 @@ describe("Interfaz del ahorcado", () => {
       "¡Ganaste!",
     );
   });
+
+  it("muestra la derrota y revela la palabra secreta al quedarse sin vidas", async () => {
+    vi.stubGlobal("location", new URL("http://localhost/?word=ESPEJO"));
+    await import("../src/ui/main");
+
+    document.getElementById("jugar")!.click();
+
+    const entrada = document.getElementById("letra") as HTMLInputElement;
+
+    for (const letra of ["A", "B", "C", "D", "F"]) {
+      entrada.value = letra;
+      entrada.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+    }
+
+    expect(document.getElementById("vidas")!.textContent).toBe("0");
+    expect(document.getElementById("mensaje-resultado")?.textContent).toBe(
+      "¡Perdiste!",
+    );
+    expect(document.getElementById("palabra-secreta")?.textContent).toBe(
+      "ESPEJO",
+    );
+    expect(entrada.disabled).toBe(true);
+  });
 });
