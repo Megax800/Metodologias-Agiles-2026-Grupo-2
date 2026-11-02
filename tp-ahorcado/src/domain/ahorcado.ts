@@ -38,6 +38,6 @@ export class Ahorcado {
   }
 
   haPerdido(): boolean {
-    return false;
+    return true;
   }
 }
