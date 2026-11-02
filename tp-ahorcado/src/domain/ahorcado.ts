@@ -38,6 +38,6 @@ export class Ahorcado {
   }
 
   haPerdido(): boolean {
-    return true;
+    return this.vidas === 0;
   }
 }
