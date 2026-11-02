@@ -57,4 +57,14 @@ describe("Ahorcado", () => {
 
     expect(juego.haPerdido()).toBe(true);
   });
+  it("devuelve false cuando el jugador todavía tiene vidas", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.adivinarLetra("A");
+    juego.adivinarLetra("B");
+    juego.adivinarLetra("C");
+    juego.adivinarLetra("D");
+
+    expect(juego.haPerdido()).toBe(false);
+  });
 });
