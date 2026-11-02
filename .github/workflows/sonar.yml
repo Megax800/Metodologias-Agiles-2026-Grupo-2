@@ -29,6 +29,12 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Instalar navegadores de Playwright
+        run: npx playwright install --with-deps
+
+      - name: Ejecutar acceptance tests
+        run: npm run at
+
       - name: Ejecutar tests con cobertura
         run: npm run test:coverage
 
