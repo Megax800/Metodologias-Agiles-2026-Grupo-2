@@ -36,4 +36,8 @@ export class Ahorcado {
   haGanado(): boolean {
     return this.palabraOculta.every((letra) => letra !== "_");
   }
+
+  haPerdido(): boolean {
+    return false;
+  }
 }
