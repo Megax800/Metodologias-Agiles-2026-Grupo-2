@@ -81,4 +81,11 @@ describe("Ahorcado", () => {
     expect(juego.ingresarLetra("S")).toBe(false);
     expect(juego.ingresarLetra("E")).toBe(true);
   });
+  it("no debe descontar vidas cuando se ingresa un carácter que no es una letra", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.ingresarLetra("5");
+
+    expect(juego.obtenerVidas()).toBe(5);
+  });
 });

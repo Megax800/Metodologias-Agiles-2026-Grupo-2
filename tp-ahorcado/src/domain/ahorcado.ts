@@ -45,6 +45,10 @@ export class Ahorcado {
   ingresarLetra(_letra: string): boolean {
     const letraNormalizada = _letra.toUpperCase();
 
+    if (!this.esLetraValida(letraNormalizada)) {
+      return false;
+    }
+
     if (this.letrasIngresadas.includes(letraNormalizada)) {
       return true;
     }
@@ -53,5 +57,9 @@ export class Ahorcado {
     this.adivinarLetra(letraNormalizada);
 
     return false;
+  }
+
+  esLetraValida(_letra: string): boolean {
+    return true;
   }
 }
