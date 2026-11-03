@@ -40,4 +40,8 @@ export class Ahorcado {
   haPerdido(): boolean {
     return this.vidas === 0;
   }
+
+  ingresarLetra(_letra: string): boolean {
+    return false;
+  }
 }

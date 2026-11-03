@@ -67,4 +67,11 @@ describe("Ahorcado", () => {
 
     expect(juego.haPerdido()).toBe(false);
   });
+  it("debe indicar cuando una letra ya fue ingresada", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.ingresarLetra("E");
+
+    expect(juego.ingresarLetra("E")).toBe(true);
+  });
 });
