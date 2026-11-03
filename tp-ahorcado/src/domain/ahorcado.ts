@@ -60,6 +60,6 @@ export class Ahorcado {
   }
 
   esLetraValida(_letra: string): boolean {
-    return _letra !== "5";
+    return /^\p{L}$/u.test(_letra);
   }
 }
