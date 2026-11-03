@@ -88,4 +88,11 @@ describe("Ahorcado", () => {
 
     expect(juego.obtenerVidas()).toBe(5);
   });
+  it("no debe descontar vidas cuando se ingresa un símbolo", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.ingresarLetra("@");
+
+    expect(juego.obtenerVidas()).toBe(5);
+  });
 });
