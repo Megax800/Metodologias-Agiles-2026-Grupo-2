@@ -74,4 +74,11 @@ describe("Ahorcado", () => {
 
     expect(juego.ingresarLetra("E")).toBe(true);
   });
+  it("debe distinguir entre letras nuevas y letras repetidas", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    expect(juego.ingresarLetra("E")).toBe(false);
+    expect(juego.ingresarLetra("S")).toBe(false);
+    expect(juego.ingresarLetra("E")).toBe(true);
+  });
 });
