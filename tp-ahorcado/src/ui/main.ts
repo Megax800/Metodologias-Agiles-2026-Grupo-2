@@ -56,7 +56,20 @@ entradaLetra.addEventListener("keydown", (evento) => {
 
   if (letra.length !== 1) return;
 
-  juego.adivinarLetra(letra);
+  const repetida = juego.ingresarLetra(letra);
+  if (repetida) {
+    let mensaje = document.getElementById("mensaje-repetida");
+
+    if (!mensaje) {
+      mensaje = document.createElement("p");
+      mensaje.id = "mensaje-repetida";
+      partida.appendChild(mensaje);
+    }
+
+    mensaje.textContent = "Ya ingresaste esa letra";
+    entradaLetra.value = "";
+    return;
+  }
   vidasElemento.textContent = String(juego.obtenerVidas());
   mostrarPalabra();
   if (juego.haPerdido()) {
