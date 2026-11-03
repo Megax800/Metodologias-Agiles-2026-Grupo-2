@@ -2,6 +2,7 @@ export class Ahorcado {
   private palabra: string;
   private palabraOculta: string[];
   private vidas: number;
+  private letrasIngresadas: string[] = [];
 
   constructor(palabra: string) {
     this.palabra = palabra.toUpperCase();
@@ -42,6 +43,15 @@ export class Ahorcado {
   }
 
   ingresarLetra(_letra: string): boolean {
-    return true;
+    const letraNormalizada = _letra.toUpperCase();
+
+    if (this.letrasIngresadas.includes(letraNormalizada)) {
+      return true;
+    }
+
+    this.letrasIngresadas.push(letraNormalizada);
+    this.adivinarLetra(letraNormalizada);
+
+    return false;
   }
 }
