@@ -42,6 +42,6 @@ export class Ahorcado {
   }
 
   ingresarLetra(_letra: string): boolean {
-    return false;
+    return true;
   }
 }
