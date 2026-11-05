@@ -7,7 +7,10 @@ export class Ahorcado {
   private letrasIngresadas: string[] = [];
 
   constructor(palabra?: string, azar: () => number = Math.random) {
-    this.palabra = palabra ?? PALABRAS[0];
+    const palabraSeleccionada =
+      palabra ?? PALABRAS[Math.floor(azar() * PALABRAS.length)];
+
+    this.palabra = palabraSeleccionada;
     this.palabraOculta = this.palabra.split("").map(() => "_");
     this.vidas = 5;
   }
