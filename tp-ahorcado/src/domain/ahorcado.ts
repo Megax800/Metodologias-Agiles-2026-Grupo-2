@@ -1,11 +1,13 @@
+import { PALABRAS } from "./palabras";
+
 export class Ahorcado {
   private palabra: string;
   private palabraOculta: string[];
   private vidas: number;
   private letrasIngresadas: string[] = [];
 
-  constructor(palabra?: string) {
-    this.palabra = (palabra ?? "").toUpperCase();
+  constructor(palabra?: string, azar: () => number = Math.random) {
+    this.palabra = palabra ?? PALABRAS[0];
     this.palabraOculta = this.palabra.split("").map(() => "_");
     this.vidas = 5;
   }
