@@ -39,14 +39,22 @@ function mostrarPalabra() {
 
 botonJugar.addEventListener("click", () => {
   const parametros = new URLSearchParams(window.location.search);
-  const palabra = (parametros.get("word") || "ESPEJO").toUpperCase();
+  const palabra = parametros.get("word");
 
-  juego = new Ahorcado(palabra);
-  palabraSecreta = palabra;
+  palabra
+    ? palabraElemento.setAttribute("data-origen", "manual")
+    : palabraElemento.setAttribute("data-origen", "lista");
+
+  juego = palabra ? new Ahorcado(palabra.toUpperCase()) : new Ahorcado();
+
+  palabraSecreta = juego.obtenerPalabraCompleta();
+
   mostrarPalabra();
   partida.hidden = false;
   entradaLetra.value = "";
   entradaLetra.focus();
+
+  console.log(palabraElemento.getAttribute("data-origen"));
 });
 
 entradaLetra.addEventListener("keydown", (evento) => {

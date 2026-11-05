@@ -10,7 +10,7 @@ export class Ahorcado {
     const palabraSeleccionada =
       palabra ?? PALABRAS[Math.floor(azar() * PALABRAS.length)];
 
-    this.palabra = palabraSeleccionada;
+    this.palabra = palabraSeleccionada.toUpperCase();
     this.palabraOculta = this.palabra.split("").map(() => "_");
     this.vidas = 5;
   }
