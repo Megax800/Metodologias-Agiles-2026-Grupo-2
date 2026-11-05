@@ -4,8 +4,8 @@ export class Ahorcado {
   private vidas: number;
   private letrasIngresadas: string[] = [];
 
-  constructor(palabra: string) {
-    this.palabra = palabra.toUpperCase();
+  constructor(palabra?: string) {
+    this.palabra = (palabra ?? "").toUpperCase();
     this.palabraOculta = this.palabra.split("").map(() => "_");
     this.vidas = 5;
   }
@@ -61,5 +61,9 @@ export class Ahorcado {
 
   esLetraValida(_letra: string): boolean {
     return /^\p{L}$/u.test(_letra);
+  }
+
+  obtenerPalabraCompleta(): string {
+    return this.palabra;
   }
 }

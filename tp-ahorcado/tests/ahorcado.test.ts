@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { Ahorcado } from "../src/domain/ahorcado";
+import { PALABRAS } from "../src/domain/palabras";
 
 describe("Ahorcado", () => {
   it("debe crear una partida con todas las letras ocultas", () => {
@@ -94,5 +95,10 @@ describe("Ahorcado", () => {
     juego.ingresarLetra("@");
 
     expect(juego.obtenerVidas()).toBe(5);
+  });
+  it("debe seleccionar una palabra de la lista cuando no se especifica una", () => {
+    const juego = new Ahorcado();
+
+    expect(PALABRAS).toContain(juego.obtenerPalabraCompleta());
   });
 });
