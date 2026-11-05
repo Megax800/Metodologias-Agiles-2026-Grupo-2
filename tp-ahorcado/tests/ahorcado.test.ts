@@ -101,4 +101,9 @@ describe("Ahorcado", () => {
 
     expect(PALABRAS).toContain(juego.obtenerPalabraCompleta());
   });
+  it("debe seleccionar una palabra según el valor de azar", () => {
+    const juego = new Ahorcado(undefined, () => 0.99);
+
+    expect(juego.obtenerPalabraCompleta()).toBe("ESCUELA");
+  });
 });
