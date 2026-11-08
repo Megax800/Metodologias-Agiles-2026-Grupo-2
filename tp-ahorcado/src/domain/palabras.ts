@@ -8,5 +8,6 @@ export const PALABRAS = [
   "PELOTA",
   "LAPIZ",
   "CAMINO",
+  "ELEFANTES",
   "ESCUELA",
 ];
