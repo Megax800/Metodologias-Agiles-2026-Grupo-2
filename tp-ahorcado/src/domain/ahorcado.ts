@@ -33,7 +33,11 @@ export class Ahorcado {
           ? PALABRAS.filter(
               (palabra) => palabra.length >= 4 && palabra.length <= 5,
             )
-          : PALABRAS;
+          : opciones?.dificultad === "dificil"
+            ? PALABRAS.filter(
+                (palabra) => palabra.length >= 8 && palabra.length <= 9,
+              )
+            : PALABRAS;
 
     const palabraSeleccionada =
       palabraFija ??
