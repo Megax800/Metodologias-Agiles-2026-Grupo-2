@@ -1,14 +1,31 @@
 import { PALABRAS } from "./palabras";
 
+type OpcionesPartida = {
+  dificultad: "facil" | "medio" | "dificil";
+  palabra?: string;
+  azar?: () => number;
+};
+
 export class Ahorcado {
   private palabra: string;
   private palabraOculta: string[];
   private vidas: number;
   private letrasIngresadas: string[] = [];
 
-  constructor(palabra?: string, azar: () => number = Math.random) {
+  constructor(
+    palabra?: string | OpcionesPartida,
+    azar: () => number = Math.random,
+  ) {
+    const opciones =
+      typeof palabra === "object" && palabra !== null ? palabra : undefined;
+
+    const palabraFija =
+      typeof palabra === "string" ? palabra : opciones?.palabra;
+
+    const fuenteAzar = opciones?.azar ?? azar;
+
     const palabraSeleccionada =
-      palabra ?? PALABRAS[Math.floor(azar() * PALABRAS.length)];
+      palabraFija ?? PALABRAS[Math.floor(fuenteAzar() * PALABRAS.length)];
 
     this.palabra = palabraSeleccionada.toUpperCase();
     this.palabraOculta = this.palabra.split("").map(() => "_");

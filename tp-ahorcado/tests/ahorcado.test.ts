@@ -106,4 +106,12 @@ describe("Ahorcado", () => {
 
     expect(juego.obtenerPalabraCompleta()).toBe("ESCUELA");
   });
+  it("inicia con 6 vidas en dificultad fácil", () => {
+    const juego = new Ahorcado({
+      dificultad: "facil",
+      palabra: "GATO",
+    });
+
+    expect(juego.obtenerVidas()).toBe(6);
+  });
 });
