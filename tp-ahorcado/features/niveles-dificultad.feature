@@ -15,3 +15,10 @@ Característica: Niveles de dificultad
     Cuando inicia una partida
     Entonces debe tener 4 vidas
     Y la palabra seleccionada debe tener entre 8 y 9 letras
+
+  @CA-09
+  Escenario: Iniciar una partida en dificultad media
+    Dado que el jugador selecciona la dificultad "Medio"
+    Cuando inicia una partida
+    Entonces debe tener 5 vidas
+    Y la palabra seleccionada debe tener entre 6 y 7 letras

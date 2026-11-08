@@ -122,4 +122,15 @@ describe("Ahorcado", () => {
 
     expect(juego.obtenerVidas()).toBe(4);
   });
+  it("selecciona una palabra de entre 6 y 7 letras en dificultad media", () => {
+    const juego = new Ahorcado({
+      dificultad: "medio",
+      azar: () => 0,
+    });
+
+    const cantidad = juego.obtenerPalabraCompleta().length;
+
+    expect(cantidad).toBeGreaterThanOrEqual(6);
+    expect(cantidad).toBeLessThanOrEqual(7);
+  });
 });
