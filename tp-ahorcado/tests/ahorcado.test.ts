@@ -114,4 +114,12 @@ describe("Ahorcado", () => {
 
     expect(juego.obtenerVidas()).toBe(6);
   });
+  it("inicia con 4 vidas en dificultad difícil", () => {
+    const juego = new Ahorcado({
+      dificultad: "dificil",
+      palabra: "ELEFANTES",
+    });
+
+    expect(juego.obtenerVidas()).toBe(4);
+  });
 });
