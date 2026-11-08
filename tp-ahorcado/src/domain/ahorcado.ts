@@ -24,8 +24,18 @@ export class Ahorcado {
 
     const fuenteAzar = opciones?.azar ?? azar;
 
+    const palabrasDisponibles =
+      opciones?.dificultad === "medio"
+        ? PALABRAS.filter(
+            (palabra) => palabra.length >= 6 && palabra.length <= 7,
+          )
+        : PALABRAS;
+
     const palabraSeleccionada =
-      palabraFija ?? PALABRAS[Math.floor(fuenteAzar() * PALABRAS.length)];
+      palabraFija ??
+      palabrasDisponibles[
+        Math.floor(fuenteAzar() * palabrasDisponibles.length)
+      ];
 
     this.palabra = palabraSeleccionada.toUpperCase();
     this.palabraOculta = this.palabra.split("").map(() => "_");
