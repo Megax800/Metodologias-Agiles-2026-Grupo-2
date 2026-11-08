@@ -29,7 +29,12 @@ export class Ahorcado {
 
     this.palabra = palabraSeleccionada.toUpperCase();
     this.palabraOculta = this.palabra.split("").map(() => "_");
-    this.vidas = opciones?.dificultad === "facil" ? 6 : 5;
+    this.vidas =
+      opciones?.dificultad === "facil"
+        ? 6
+        : opciones?.dificultad === "dificil"
+          ? 4
+          : 5;
   }
 
   obtenerPalabraOculta(): string[] {
