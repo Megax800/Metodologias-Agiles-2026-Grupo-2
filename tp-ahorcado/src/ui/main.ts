@@ -53,8 +53,6 @@ botonJugar.addEventListener("click", () => {
   partida.hidden = false;
   entradaLetra.value = "";
   entradaLetra.focus();
-
-  console.log(palabraElemento.getAttribute("data-origen"));
 });
 
 entradaLetra.addEventListener("keydown", (evento) => {
