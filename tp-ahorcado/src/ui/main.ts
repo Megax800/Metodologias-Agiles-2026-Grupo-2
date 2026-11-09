@@ -45,9 +45,18 @@ botonJugar.addEventListener("click", () => {
     ? palabraElemento.setAttribute("data-origen", "manual")
     : palabraElemento.setAttribute("data-origen", "lista");
 
-  juego = palabra ? new Ahorcado(palabra.toUpperCase()) : new Ahorcado();
+  const dificultad = (
+    document.getElementById("dificultad") as HTMLSelectElement
+  ).value as "facil" | "medio" | "dificil";
+
+  juego = new Ahorcado({
+    dificultad,
+    palabra: palabra?.toUpperCase(),
+  });
 
   palabraSecreta = juego.obtenerPalabraCompleta();
+
+  vidasElemento.textContent = String(juego.obtenerVidas());
 
   mostrarPalabra();
   partida.hidden = false;

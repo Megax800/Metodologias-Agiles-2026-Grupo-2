@@ -4,6 +4,12 @@ describe("Interfaz del ahorcado", () => {
   beforeEach(() => {
     document.body.innerHTML = `
       <main>
+        <label for="dificultad">Dificultad:</label>
+        <select id="dificultad">
+          <option value="facil">Fácil</option>
+          <option value="medio" selected>Medio</option>
+          <option value="dificil">Difícil</option>
+        </select>
         <button id="jugar" type="button">Jugar</button>
         <section id="partida" hidden>
           <span id="vidas">5</span>
