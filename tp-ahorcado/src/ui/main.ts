@@ -5,13 +5,15 @@ const partida = document.getElementById("partida");
 const palabraElemento = document.getElementById("palabra");
 const entradaLetra = <HTMLInputElement>document.getElementById("letra");
 const vidasElemento = document.getElementById("vidas");
+const botonJugarDeNuevo = document.getElementById("jugar-de-nuevo");
 
 if (
   !botonJugar ||
   !partida ||
   !palabraElemento ||
   !entradaLetra ||
-  !vidasElemento
+  !vidasElemento ||
+  !botonJugarDeNuevo
 ) {
   throw new Error("Faltan elementos necesarios para inicializar el juego");
 }
@@ -99,6 +101,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
     partida.appendChild(palabraRevelada);
 
     entradaLetra.disabled = true;
+    botonJugarDeNuevo.hidden = false;
     return;
   }
   if (juego.haGanado()) {
@@ -106,6 +109,31 @@ entradaLetra.addEventListener("keydown", (evento) => {
     mensaje.id = "mensaje-resultado";
     mensaje.textContent = "¡Ganaste!";
     partida.appendChild(mensaje);
+    botonJugarDeNuevo.hidden = false;
   }
   entradaLetra.value = "";
+});
+
+botonJugarDeNuevo.addEventListener("click", () => {
+  const dificultad = (
+    document.getElementById("dificultad") as HTMLSelectElement
+  ).value as "facil" | "medio" | "dificil";
+
+  juego = new Ahorcado({ dificultad });
+  palabraSecreta = juego.obtenerPalabraCompleta();
+
+  mostrarPalabra();
+
+  vidasElemento.textContent = String(juego.obtenerVidas());
+
+  document.getElementById("mensaje-resultado")?.remove();
+  document.getElementById("palabra-secreta")?.remove();
+  document.getElementById("mensaje-repetida")?.remove();
+
+  entradaLetra.disabled = false;
+  entradaLetra.value = "";
+
+  botonJugarDeNuevo.hidden = true;
+
+  entradaLetra.focus();
 });
