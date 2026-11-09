@@ -11,8 +11,8 @@ Given(
   },
 );
 
-When('presiona el botón "Jugar"', async ({ page }) => {
-  await page.getByRole("button", { name: "Jugar" }).click();
+When("presiona el botón {string}", async ({ page }, texto: string) => {
+  await page.getByRole("button", { name: texto }).click();
 });
 
 Then("debe ver {int} casilleros vacíos", async ({ page }, cantidad) => {
