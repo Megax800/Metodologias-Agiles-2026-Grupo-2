@@ -155,4 +155,11 @@ describe("Ahorcado", () => {
     expect(cantidad).toBeGreaterThanOrEqual(8);
     expect(cantidad).toBeLessThanOrEqual(9);
   });
+  it("una letra acertada ya no está disponible", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.ingresarLetra("E");
+
+    expect(juego.letraDisponible("E")).toBe(false);
+  });
 });

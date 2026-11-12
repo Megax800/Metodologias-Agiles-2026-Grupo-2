@@ -108,6 +108,10 @@ export class Ahorcado {
     return /^\p{L}$/u.test(_letra);
   }
 
+  letraDisponible(_letra: string): boolean {
+    return true;
+  }
+
   obtenerPalabraCompleta(): string {
     return this.palabra;
   }
