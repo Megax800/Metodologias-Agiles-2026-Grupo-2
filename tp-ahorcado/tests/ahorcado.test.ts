@@ -162,4 +162,11 @@ describe("Ahorcado", () => {
 
     expect(juego.letraDisponible("E")).toBe(false);
   });
+  it("una letra que no fue ingresada sigue disponible", () => {
+    const juego = new Ahorcado("ESPEJO");
+
+    juego.ingresarLetra("E");
+
+    expect(juego.letraDisponible("B")).toBe(true);
+  });
 });
