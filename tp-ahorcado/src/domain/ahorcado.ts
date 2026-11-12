@@ -109,7 +109,7 @@ export class Ahorcado {
   }
 
   letraDisponible(_letra: string): boolean {
-    return true;
+    return false;
   }
 
   obtenerPalabraCompleta(): string {
