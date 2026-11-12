@@ -108,8 +108,8 @@ export class Ahorcado {
     return /^\p{L}$/u.test(_letra);
   }
 
-  letraDisponible(_letra: string): boolean {
-    return false;
+  letraDisponible(letra: string): boolean {
+    return !this.letrasIngresadas.includes(letra.toUpperCase());
   }
 
   obtenerPalabraCompleta(): string {
