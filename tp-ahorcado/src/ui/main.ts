@@ -40,10 +40,7 @@ function armarTeclado() {
       if (juego?.haPerdido()) {
         bloquearTeclado();
         mostrarResultado("¡Perdiste!");
-        const palabraRevelada = document.createElement("p");
-        palabraRevelada.id = "palabra-secreta";
-        palabraRevelada.textContent = palabraSecreta;
-        partida?.appendChild(palabraRevelada);
+        mostrarPalabraSecreta();
       }
       if (juego?.haGanado()) {
         bloquearTeclado();
@@ -78,6 +75,13 @@ const mostrarResultado = (texto: string) => {
   mensaje.id = "mensaje-resultado";
   mensaje.textContent = texto;
   partida.appendChild(mensaje);
+};
+
+const mostrarPalabraSecreta = () => {
+  const palabraRevelada = document.createElement("p");
+  palabraRevelada.id = "palabra-secreta";
+  palabraRevelada.textContent = palabraSecreta;
+  partida.appendChild(palabraRevelada);
 };
 
 function bloquearTeclado() {
@@ -141,10 +145,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
   if (juego.haPerdido()) {
     mostrarResultado("¡Perdiste!");
 
-    const palabraRevelada = document.createElement("p");
-    palabraRevelada.id = "palabra-secreta";
-    palabraRevelada.textContent = palabraSecreta;
-    partida.appendChild(palabraRevelada);
+    mostrarPalabraSecreta();
 
     entradaLetra.disabled = true;
     botonJugarDeNuevo.hidden = false;
