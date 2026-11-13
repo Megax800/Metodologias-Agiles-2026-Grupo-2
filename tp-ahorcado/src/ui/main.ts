@@ -38,10 +38,7 @@ function armarTeclado() {
       tecla.disabled = !juego?.letraDisponible(letra);
 
       if (juego?.haPerdido()) {
-        const mensaje = document.createElement("p");
-        mensaje.id = "mensaje-resultado";
-        mensaje.textContent = "¡Perdiste!";
-        partida?.appendChild(mensaje);
+        mostrarResultado("¡Perdiste!");
       }
     });
 
@@ -66,6 +63,13 @@ function mostrarPalabra() {
     palabraElemento?.appendChild(casillero);
   });
 }
+
+const mostrarResultado = (texto: string) => {
+  const mensaje = document.createElement("p");
+  mensaje.id = "mensaje-resultado";
+  mensaje.textContent = texto;
+  partida.appendChild(mensaje);
+};
 
 botonJugar.addEventListener("click", () => {
   const parametros = new URLSearchParams(window.location.search);
@@ -118,11 +122,9 @@ entradaLetra.addEventListener("keydown", (evento) => {
   }
   vidasElemento.textContent = String(juego.obtenerVidas());
   mostrarPalabra();
+
   if (juego.haPerdido()) {
-    const mensaje = document.createElement("p");
-    mensaje.id = "mensaje-resultado";
-    mensaje.textContent = "¡Perdiste!";
-    partida.appendChild(mensaje);
+    mostrarResultado("¡Perdiste!");
 
     const palabraRevelada = document.createElement("p");
     palabraRevelada.id = "palabra-secreta";
@@ -134,10 +136,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
     return;
   }
   if (juego.haGanado()) {
-    const mensaje = document.createElement("p");
-    mensaje.id = "mensaje-resultado";
-    mensaje.textContent = "¡Ganaste!";
-    partida.appendChild(mensaje);
+    mostrarResultado("¡Ganaste!");
     botonJugarDeNuevo.hidden = false;
   }
   entradaLetra.value = "";
