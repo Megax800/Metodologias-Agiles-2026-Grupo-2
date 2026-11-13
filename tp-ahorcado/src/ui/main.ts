@@ -156,6 +156,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
   }
   if (juego.haGanado()) {
     mostrarResultado("¡Ganaste!");
+    entradaLetra.disabled = true;
     bloquearTeclado();
     botonJugarDeNuevo.hidden = false;
   }
