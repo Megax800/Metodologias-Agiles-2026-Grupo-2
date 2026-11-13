@@ -38,6 +38,9 @@ function armarTeclado() {
       tecla.disabled = !juego?.letraDisponible(letra);
 
       if (juego?.haPerdido()) {
+        teclado
+          ?.querySelectorAll("button")
+          .forEach((boton) => (boton.disabled = true));
         mostrarResultado("¡Perdiste!");
       }
       if (juego?.haGanado()) {
