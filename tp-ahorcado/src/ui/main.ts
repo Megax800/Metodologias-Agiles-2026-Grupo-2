@@ -40,6 +40,9 @@ function armarTeclado() {
       if (juego?.haPerdido()) {
         mostrarResultado("¡Perdiste!");
       }
+      if (juego?.haGanado()) {
+        mostrarResultado("¡Ganaste!");
+      }
     });
 
     teclado?.appendChild(tecla);
