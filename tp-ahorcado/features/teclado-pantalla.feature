@@ -87,3 +87,14 @@ Característica: Teclado en pantalla
     Y presiona la tecla "J" del teclado en pantalla
     Y presiona la tecla "O" del teclado en pantalla
     Entonces debe ver el botón "Jugar de nuevo"
+
+  @CA-11j
+  Escenario: Jugar de nuevo habilita otra vez el teclado
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando presiona la tecla "A" del teclado en pantalla
+    Y presiona la tecla "B" del teclado en pantalla
+    Y presiona la tecla "C" del teclado en pantalla
+    Y presiona la tecla "D" del teclado en pantalla
+    Y presiona la tecla "F" del teclado en pantalla
+    Y presiona el botón "Jugar de nuevo"
+    Entonces la tecla "A" del teclado en pantalla está habilitada
