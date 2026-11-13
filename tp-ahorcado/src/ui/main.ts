@@ -169,6 +169,7 @@ botonJugarDeNuevo.addEventListener("click", () => {
   palabraSecreta = juego.obtenerPalabraCompleta();
 
   mostrarPalabra();
+  armarTeclado();
 
   vidasElemento.textContent = String(juego.obtenerVidas());
 
