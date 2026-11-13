@@ -23,3 +23,14 @@ Then(
     ).toBeDisabled();
   },
 );
+
+Then(
+  "la tecla {string} del teclado en pantalla está habilitada",
+  async ({ page }, letra: string) => {
+    await expect(
+      page
+        .getByRole("group", { name: "Teclado" })
+        .getByRole("button", { name: letra, exact: true }),
+    ).toBeEnabled();
+  },
+);
