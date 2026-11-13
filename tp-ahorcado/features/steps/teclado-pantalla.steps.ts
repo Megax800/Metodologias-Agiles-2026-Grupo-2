@@ -34,3 +34,8 @@ Then(
     ).toBeEnabled();
   },
 );
+Then("debe ver el botón {string}", async ({ page }, texto: string) => {
+  await expect(
+    page.getByRole("button", { name: texto, exact: true }),
+  ).toBeVisible();
+});

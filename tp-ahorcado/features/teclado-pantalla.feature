@@ -67,3 +67,13 @@ Característica: Teclado en pantalla
     Y presiona la tecla "D" del teclado en pantalla
     Y presiona la tecla "F" del teclado en pantalla
     Entonces debe ver la palabra secreta "ESPEJO"
+
+  @CA-11h
+  Escenario: El jugador ve el botón Jugar de nuevo al perder con el teclado en pantalla
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando presiona la tecla "A" del teclado en pantalla
+    Y presiona la tecla "B" del teclado en pantalla
+    Y presiona la tecla "C" del teclado en pantalla
+    Y presiona la tecla "D" del teclado en pantalla
+    Y presiona la tecla "F" del teclado en pantalla
+    Entonces debe ver el botón "Jugar de nuevo"
