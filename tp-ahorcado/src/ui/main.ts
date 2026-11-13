@@ -44,6 +44,9 @@ function armarTeclado() {
         mostrarResultado("¡Perdiste!");
       }
       if (juego?.haGanado()) {
+        teclado
+          ?.querySelectorAll("button")
+          .forEach((boton) => (boton.disabled = true));
         mostrarResultado("¡Ganaste!");
       }
     });
