@@ -57,3 +57,13 @@ Característica: Teclado en pantalla
     Y presiona la tecla "J" del teclado en pantalla
     Y presiona la tecla "O" del teclado en pantalla
     Entonces la tecla "G" del teclado en pantalla está deshabilitada
+  
+  @CA-11g
+  Escenario: El jugador ve la palabra secreta al perder con el teclado en pantalla
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando presiona la tecla "A" del teclado en pantalla
+    Y presiona la tecla "B" del teclado en pantalla
+    Y presiona la tecla "C" del teclado en pantalla
+    Y presiona la tecla "D" del teclado en pantalla
+    Y presiona la tecla "F" del teclado en pantalla
+    Entonces debe ver la palabra secreta "ESPEJO"
