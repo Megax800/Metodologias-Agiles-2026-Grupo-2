@@ -36,6 +36,13 @@ function armarTeclado() {
       vidasElemento!.textContent = String(juego?.obtenerVidas());
       mostrarPalabra();
       tecla.disabled = !juego?.letraDisponible(letra);
+
+      if (juego?.haPerdido()) {
+        const mensaje = document.createElement("p");
+        mensaje.id = "mensaje-resultado";
+        mensaje.textContent = "¡Perdiste!";
+        partida?.appendChild(mensaje);
+      }
     });
 
     teclado?.appendChild(tecla);
