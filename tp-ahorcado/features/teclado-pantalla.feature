@@ -98,3 +98,13 @@ Característica: Teclado en pantalla
     Y presiona la tecla "F" del teclado en pantalla
     Y presiona el botón "Jugar de nuevo"
     Entonces la tecla "A" del teclado en pantalla está habilitada
+
+  @CA-11k
+  Escenario: El teclado queda deshabilitado cuando el jugador pierde usando el input
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando ingresa la letra incorrecta "A"
+    Y ingresa la letra incorrecta "B"
+    Y ingresa la letra incorrecta "C"
+    Y ingresa la letra incorrecta "D"
+    Y ingresa la letra incorrecta "F"
+    Entonces la tecla "G" del teclado en pantalla está deshabilitada
