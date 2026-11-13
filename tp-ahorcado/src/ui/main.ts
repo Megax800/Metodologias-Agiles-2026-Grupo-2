@@ -38,15 +38,11 @@ function armarTeclado() {
       tecla.disabled = !juego?.letraDisponible(letra);
 
       if (juego?.haPerdido()) {
-        teclado
-          ?.querySelectorAll("button")
-          .forEach((boton) => (boton.disabled = true));
+        bloquearTeclado();
         mostrarResultado("¡Perdiste!");
       }
       if (juego?.haGanado()) {
-        teclado
-          ?.querySelectorAll("button")
-          .forEach((boton) => (boton.disabled = true));
+        bloquearTeclado();
         mostrarResultado("¡Ganaste!");
       }
     });
@@ -79,6 +75,12 @@ const mostrarResultado = (texto: string) => {
   mensaje.textContent = texto;
   partida.appendChild(mensaje);
 };
+
+function bloquearTeclado() {
+  teclado
+    ?.querySelectorAll("button")
+    .forEach((boton) => (boton.disabled = true));
+}
 
 botonJugar.addEventListener("click", () => {
   const parametros = new URLSearchParams(window.location.search);
