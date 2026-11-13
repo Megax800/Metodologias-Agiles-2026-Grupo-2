@@ -150,6 +150,7 @@ entradaLetra.addEventListener("keydown", (evento) => {
     mostrarPalabraSecreta();
 
     entradaLetra.disabled = true;
+    bloquearTeclado();
     botonJugarDeNuevo.hidden = false;
     return;
   }
