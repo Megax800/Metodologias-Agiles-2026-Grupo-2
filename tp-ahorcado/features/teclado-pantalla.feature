@@ -108,3 +108,13 @@ Característica: Teclado en pantalla
     Y ingresa la letra incorrecta "D"
     Y ingresa la letra incorrecta "F"
     Entonces la tecla "G" del teclado en pantalla está deshabilitada
+
+  @CA-11l
+  Escenario: El teclado queda deshabilitado cuando el jugador gana usando el input
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando el jugador adivina la letra "E"
+    Y el jugador adivina la letra "S"
+    Y el jugador adivina la letra "P"
+    Y el jugador adivina la letra "J"
+    Y el jugador adivina la letra "O"
+    Entonces la tecla "G" del teclado en pantalla está deshabilitada
