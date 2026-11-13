@@ -46,6 +46,7 @@ function armarTeclado() {
       if (juego?.haGanado()) {
         bloquearTeclado();
         mostrarResultado("¡Ganaste!");
+        botonJugarDeNuevo!.hidden = false;
       }
     });
 
