@@ -25,3 +25,13 @@ Característica: Teclado en pantalla
     Y presiona la tecla "D" del teclado en pantalla
     Y presiona la tecla "F" del teclado en pantalla
     Entonces debe ver el mensaje "¡Perdiste!"
+    
+  @CA-11
+  Escenario: El jugador gana usando solo el teclado en pantalla
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando presiona la tecla "E" del teclado en pantalla
+    Y presiona la tecla "S" del teclado en pantalla
+    Y presiona la tecla "P" del teclado en pantalla
+    Y presiona la tecla "J" del teclado en pantalla
+    Y presiona la tecla "O" del teclado en pantalla
+    Entonces debe ver el mensaje "¡Ganaste!"
