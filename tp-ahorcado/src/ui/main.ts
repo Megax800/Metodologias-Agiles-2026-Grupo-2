@@ -33,6 +33,7 @@ function armarTeclado() {
 
     tecla.addEventListener("click", () => {
       juego?.ingresarLetra(letra);
+      vidasElemento!.textContent = String(juego?.obtenerVidas());
       mostrarPalabra();
       tecla.disabled = !juego?.letraDisponible(letra);
     });
