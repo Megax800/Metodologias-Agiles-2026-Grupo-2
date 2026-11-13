@@ -40,6 +40,10 @@ function armarTeclado() {
       if (juego?.haPerdido()) {
         bloquearTeclado();
         mostrarResultado("¡Perdiste!");
+        const palabraRevelada = document.createElement("p");
+        palabraRevelada.id = "palabra-secreta";
+        palabraRevelada.textContent = palabraSecreta;
+        partida?.appendChild(palabraRevelada);
       }
       if (juego?.haGanado()) {
         bloquearTeclado();
