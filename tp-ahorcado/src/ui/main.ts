@@ -20,6 +20,26 @@ if (
 
 let juego: Ahorcado | null = null;
 let palabraSecreta = "";
+const teclado = document.getElementById("teclado");
+const LETRAS = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("");
+
+function armarTeclado() {
+  teclado?.replaceChildren();
+
+  LETRAS.forEach((letra) => {
+    const tecla = document.createElement("button");
+    tecla.type = "button";
+    tecla.textContent = letra;
+
+    tecla.addEventListener("click", () => {
+      juego?.ingresarLetra(letra);
+      mostrarPalabra();
+      tecla.disabled = !juego?.letraDisponible(letra);
+    });
+
+    teclado?.appendChild(tecla);
+  });
+}
 
 function mostrarPalabra() {
   palabraElemento?.replaceChildren();
@@ -61,6 +81,7 @@ botonJugar.addEventListener("click", () => {
   vidasElemento.textContent = String(juego.obtenerVidas());
 
   mostrarPalabra();
+  armarTeclado();
   partida.hidden = false;
   entradaLetra.value = "";
   entradaLetra.focus();
