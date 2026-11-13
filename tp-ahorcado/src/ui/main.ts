@@ -41,6 +41,7 @@ function armarTeclado() {
         bloquearTeclado();
         mostrarResultado("¡Perdiste!");
         mostrarPalabraSecreta();
+        botonJugarDeNuevo!.hidden = false;
       }
       if (juego?.haGanado()) {
         bloquearTeclado();
