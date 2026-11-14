@@ -2,6 +2,10 @@
 @HU-05
 Característica: Perder una partida
 
+Como jugador
+quiero que la partida termine al quedarme sin vidas
+para saber que perdí
+
   @CA-05
   Escenario: El jugador pierde al quedarse sin vidas
     Dado que el jugador inicia una partida con la palabra "ESPEJO"

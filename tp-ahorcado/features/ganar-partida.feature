@@ -2,6 +2,10 @@
 @HU-04
 Característica: Ganar una partida
 
+Como jugador
+quiero que la partida termine en victoria al descubrir todas las letras
+para saber que gané
+
 @CA-04
   Escenario: El jugador gana al descubrir todas las letras
     Dado que el jugador inicia una partida con la palabra "ESPEJO"

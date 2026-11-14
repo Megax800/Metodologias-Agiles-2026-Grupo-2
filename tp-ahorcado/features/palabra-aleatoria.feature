@@ -2,6 +2,10 @@
 @HU-08
 Característica: Iniciar una partida con una palabra aleatoria
 
+Como jugador
+quiero que la palabra se elija al azar
+para que cada partida sea distinta
+
   @CA-08
   Escenario: El jugador inicia una partida con una palabra seleccionada aleatoriamente
     Dado que el jugador ingresa al juego

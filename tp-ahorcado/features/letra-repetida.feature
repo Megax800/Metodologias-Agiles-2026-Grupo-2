@@ -2,6 +2,10 @@
 @HU-06
 Característica: Ingresar una letra repetida
 
+Como jugador
+quiero que el juego me avise si ya ingresé una letra y no me quite vidas
+para recordarla y no ingresarla nuevamente
+
   @CA-06
   Escenario: El jugador ingresa una letra que ya había ingresado
     Dado que el jugador inicia una partida con la palabra "ESPEJO"

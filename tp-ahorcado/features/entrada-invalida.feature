@@ -1,7 +1,10 @@
-
 # language: es
 @HU-07
 Característica: Validar la entrada del jugador
+
+Como jugador
+quiero que solo se acepten letras y que no se puedan seguir ingresando al ganar
+para que el juego sea justo
 
   @CA-07a
   Escenario: El jugador ingresa un carácter que no es una letra

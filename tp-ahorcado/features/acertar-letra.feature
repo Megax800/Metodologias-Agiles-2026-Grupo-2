@@ -2,6 +2,10 @@
 @HU-02
 Característica: Acertar letra
 
+Como jugador
+quiero que una letra acertada se revele en todas sus posiciones
+para avanzar en la palabra
+
   @CA-02
   Escenario: El jugador acierta una letra presente
     Dado que el jugador tiene una partida iniciada con la palabra "ESPEJO"

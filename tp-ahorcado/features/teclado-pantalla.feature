@@ -2,6 +2,10 @@
 @HU-11
 Característica: Teclado en pantalla
 
+Como jugador
+quiero adivinar letras con un teclado en pantalla
+para jugar sin escribir en el campo de texto
+
   @CA-11a
   Escenario: El jugador adivina una letra con el teclado en pantalla
     Dado que el jugador inicia una partida con la palabra "ESPEJO"

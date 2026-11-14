@@ -2,7 +2,11 @@
 @HU-10
 Característica: Jugar de nuevo
 
-  @CA-10
+Como jugador
+quiero reiniciar la partida al terminar
+para seguir jugando sin recargar la página
+
+  @CA-10a
   Escenario: El jugador inicia una nueva partida después de perder
     Dado que el jugador inicia una partida con la palabra "ESPEJO"
     Cuando ingresa la letra incorrecta "A"
@@ -19,7 +23,7 @@ Característica: Jugar de nuevo
     Y no debe ver la palabra secreta anterior
     Y la página no debe haberse recargado
 
-  @CA-10
+  @CA-10b
   Escenario: El jugador inicia una nueva partida después de ganar
     Dado que el jugador inicia una partida con la palabra "ESPEJO"
     Cuando el jugador adivina la letra "E"
