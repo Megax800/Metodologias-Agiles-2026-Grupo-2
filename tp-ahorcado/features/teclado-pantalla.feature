@@ -128,3 +128,13 @@ Característica: Teclado en pantalla
     Y presiona la tecla "D" del teclado en pantalla
     Y presiona la tecla "F" del teclado en pantalla
     Entonces no debe poder ingresar una letra
+
+  @CA-11n
+  Escenario: El input queda deshabilitado cuando el jugador gana usando el teclado
+    Dado que el jugador inicia una partida con la palabra "ESPEJO"
+    Cuando presiona la tecla "E" del teclado en pantalla
+    Y presiona la tecla "S" del teclado en pantalla
+    Y presiona la tecla "P" del teclado en pantalla
+    Y presiona la tecla "J" del teclado en pantalla
+    Y presiona la tecla "O" del teclado en pantalla
+    Entonces no debe poder ingresar una letra
