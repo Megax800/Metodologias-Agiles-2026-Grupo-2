@@ -38,6 +38,7 @@ function armarTeclado() {
       tecla.disabled = !juego?.letraDisponible(letra);
 
       if (juego?.haPerdido()) {
+        entradaLetra.disabled = true;
         bloquearTeclado();
         mostrarResultado("¡Perdiste!");
         mostrarPalabraSecreta();
