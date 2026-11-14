@@ -45,6 +45,7 @@ function armarTeclado() {
         botonJugarDeNuevo!.hidden = false;
       }
       if (juego?.haGanado()) {
+        entradaLetra!.disabled = true;
         bloquearTeclado();
         mostrarResultado("¡Ganaste!");
         botonJugarDeNuevo!.hidden = false;
