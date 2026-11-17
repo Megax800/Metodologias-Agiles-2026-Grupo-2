@@ -66,11 +66,6 @@ npx bddgen && npx playwright test --grep @CA-11j
 - El prefijo del commit (`AT-07`, `UT-12`…) conecta el historial con la matriz de `NOTES.md`.
 - Una historia está _Done_ cuando todos sus escenarios están verdes.
 
-## Calidad y cobertura
-
-- El pipeline corre los acceptance tests, los unit tests con cobertura, el build y el análisis de SonarCloud con su quality gate. En la rama principal publica además en GitHub Pages.
-- El umbral de cobertura (90 %) se mide sobre `src/domain/`, que está al 100 %. La UI no cuenta para la cobertura porque la prueban los acceptance tests contra la app real, no tests en memoria.
-
 ## Equipo
 
 - Alan Romero

@@ -104,9 +104,3 @@ AT-10 (jugar de nuevo) y los escenarios CA-07b y CA-11b a CA-11n no tienen UTs n
 - **Teclado de 27 letras** (con Ñ). `esLetraValida` acepta cualquier letra Unicode.
 - **Un criterio por comportamiento:** los escenarios con más de un caso se partieron en `CA-07a/b`, `CA-09a/b/c`, `CA-10a/b` y `CA-11a`…`CA-11n` para poder correr cada uno con `--grep`.
 - **La UI no decide reglas de juego:** pregunta a `Ahorcado` (`haPerdido`, `haGanado`, `letraDisponible`) y solo muestra el resultado.
-
-## Deuda conocida
-
-- **Refactor pendiente:** en `main.ts`, las ramas de perder y de ganar repiten las mismas acciones en el `keydown` del input y en el click de la tecla (`mostrarResultado`, `mostrarPalabraSecreta`, bloqueo del input y del teclado, botón "Jugar de nuevo"). Se puede extraer a `terminarPartidaPerdida` / `terminarPartidaGanada` sin cambiar ningún resultado. Hacerlo, o justificar por qué no hace falta.
-- Una letra escrita en el input no deshabilita su tecla en el teclado.
-- `tests/main.test.ts` (11 tests de jsdom): pendiente de definir con el profe si se mantiene.
