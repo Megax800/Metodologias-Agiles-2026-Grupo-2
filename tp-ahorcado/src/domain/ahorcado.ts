@@ -52,7 +52,7 @@ export class Ahorcado {
         ? 6
         : opciones?.dificultad === "dificil"
           ? 4
-          : 9;
+          : 5;
   }
 
   obtenerPalabraOculta(): string[] {
